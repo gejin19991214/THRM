@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block body %}
+<form action="/update/{{ information.0 }}" method="POST">
+    <input type="text" name="teacher_name" placeholder="teacher_name" value="{{ information.1 }}">
+{#    <input type="text" name="teacher_dept_id" placeholder="teacher_dept_id" value="{{ information.2 }}">#}
+    <select name="teacher_dept_id">
+                                <option value="" disabled selected>teacher_dept_id</option>
+                                <optgroup label="信息学部">
+{#                                    <option value="1">信息学部</option>#}
+                                    <option value="2">计算机科学与技术学院</option>
+                                    <option value="3">软件工程学院</option>
+                                    <option value="4">数据科学与工程学院</option>
+                                    <option value="5">通信与电子工程学院</option>
+                                    <option value="6">智能+研究院</option>
+                                </optgroup>
+                                <optgroup label="经济与管理学部">
+{#                                    <option value="7">经济与管理学部</option>#}
+                                    <option value="8">经济学院</option>
+                                    <option value="9">工商管理学院</option>
+                                    <option value="10">公共管理学院</option>
+                                    <option value="11">统计学院</option>
+                                </optgroup>
+                                <optgroup label="心理与认知科学学院">
+{#                                    <option value="12">心理与认知科学学院</option>#}
+                                    <option value="13">心理学系</option>
+                                    <option value="14">应用心理学系</option>
+                                    <option value="15">发展与教育心理学研究所</option>
+                                    <option value="16">认知神经科学研究所</option>
+                                </optgroup>
+                                <optgroup label="外语学院">
+{#                                    <option value="17">外语学院</option>#}
+                                    <option value="18">英语系</option>
+                                    <option value="19">日语系</option>
+                                    <option value="20">法语系</option>
+                                    <option value="21">德语系</option>
+                                    <option value="22">俄语系</option>
+                                    <option value="23">俄语系</option>
+                                    <option value="24">大学英语教学部</option>
+                                </optgroup>
+                            </select>
+    <input type="text" name="teacher_title" placeholder="teacher_title" value="{{ information.3 }}">
+    <input type="text" name="teacher_tel" placeholder="teacher_tel" value="{{ information.4 }}">
+    <input type="text" name="teacher_address" placeholder="teacher_address" value="{{ information.5 }}">
+    <input type="text" name="teacher_email" placeholder="teacher_email" value="{{ information.6 }}">
+    <button class="btn btn-primary" type="submit">
+        保存
+    </button>
+</form>
+{% endblock %}

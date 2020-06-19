@@ -1,0 +1,82 @@
+<select name="teacher_dept_id">
+                                <option value="" disabled selected>teacher_dept_id</option>
+                                <optgroup label="信息学部(1)">
+{#                                    <option value="1">信息学部</option>#}
+                                    <option value="2">计算机科学与技术学院(2)</option>
+                                    <option value="3">软件工程学院(3)</option>
+                                    <option value="4">数据科学与工程学院(4)</option>
+                                    <option value="5">通信与电子工程学院(5)</option>
+                                    <option value="6">智能+研究院(6)</option>
+                                </optgroup>
+                                <optgroup label="经济与管理学部(7)">
+{#                                    <option value="7">经济与管理学部</option>#}
+                                    <option value="8">经济学院(8)</option>
+                                    <option value="9">工商管理学院(9)</option>
+                                    <option value="10">公共管理学院(10)</option>
+                                    <option value="11">统计学院(11)</option>
+                                </optgroup>
+                                <optgroup label="心理与认知科学学院(12)">
+{#                                    <option value="12">心理与认知科学学院</option>#}
+                                    <option value="13">心理学系(13)</option>
+                                    <option value="14">应用心理学系(14)</option>
+                                    <option value="15">发展与教育心理学研究所(15)</option>
+                                    <option value="16">认知神经科学研究所(16)</option>
+                                </optgroup>
+                                <optgroup label="外语学院(17)">
+{#                                    <option value="17">外语学院</option>#}
+                                    <option value="18">英语系(18)</option>
+                                    <option value="19">日语系(19)</option>
+                                    <option value="20">法语系(20)</option>
+                                    <option value="21">德语系(21)</option>
+                                    <option value="22">俄语系(22)</option>
+                                    <option value="23">俄语系(23)</option>
+                                    <option value="24">大学英语教学部(24)</option>
+                                </optgroup>
+                            </select>
+
+window.onload = function () {
+        bindcollege();
+    };
+    function bindcollege() {
+        let college = document.getElementById("college");
+        college.options.length = 0;
+        college.add(new Option("请选择", ""));
+        let json = '[{"key":"信息学部","value":"1"},{"key":"经济与管理学部","value":"7"},{"key":"心理与认知科学学院","value":"12"},{"key":"外语学院","value":"17"}}]';
+        let arr = eval("(" + json + ")"); //转换后的JSON对象
+        for (let i = 0; i < arr.length; i++) {
+            let key = arr[i].key;
+            let value = arr[i].value;
+            college.add(new Option(key, value));
+    }
+    function bindfaculty() {
+        let college = document.getElementById("college");
+        let faculty = document.getElementById("faculty");
+
+        faculty.options.length = 0;
+        faculty.add(new Option("请选择", ""));
+
+        let college_value = college.value;
+
+        let json = "";
+        switch (college_value) {
+            case "1": {
+                json = '[{"key":"信息学部","value":"1"},{"key":"经济与管理学部","value":"7"},{"key":"心理与认知科学学院","value":"12"},{"key":"外语学院","value":"17"}}]';
+            }
+        }
+        if(json){
+            //绑定下拉框选项
+            let arr = eval("(" + json + ")"); //转换后的JSON对象
+            for (let i = 0; i < arr.length; i++) {
+                let key = arr[i].key;
+                let value = arr[i].value;
+                selCity.add(new Option(key, value));
+            }
+        }
+    }
+    }
+
+faculty.innerHTML="<option value=\"2\">计算机科学与技术学院(2)</option>\n" +
+                "                                    <option value=\"3\">软件工程学院(3)</option>\n" +
+                "                                    <option value=\"4\">数据科学与工程学院(4)</option>\n" +
+                "                                    <option value=\"5\">通信与电子工程学院(5)</option>\n" +
+                "                                    <option value=\"6\">智能+研究院(6)</option>";

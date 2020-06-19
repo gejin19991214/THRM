@@ -1,0 +1,21 @@
+body {
+	background-image: url('../static/ecnu.jpg');
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+	background-attachment: fixed;
+}
+
+h3 {
+	text-align:center;
+	margin: 0;
+	padding: 20px 0;
+	color: #00539F;
+	text-shadow: 3px 3px 1px gray; /*阴影*/
+	font-family: Georgia, serif;
+}
+
+div.logo {
+	position: absolute;
+    top: 0px;
+    right: 0px;
+}
